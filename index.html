@@ -3,343 +3,559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>曼谷 8 天行程 · 7/2–7/9</title>
+<title>Bangkok Trip · 7/2–7/9</title>
 <style>
-  :root{
-    --bg:#F2F4EF;--paper:#FFFFFF;--ink:#1B231D;--soft:#6B736C;
-    --green:#22503A;--green2:#3E6B4A;--leaf:#5E8C57;
-    --amber:#A6730F;--amber-soft:#F4E7C8;--clay:#A9542E;
-    --sky:#2F6F86;--sky-soft:#DCE8EC;
-    --line:rgba(27,35,29,.10);--line2:rgba(27,35,29,.06);
-    --shadow:0 .5px 1px rgba(27,35,29,.04),0 10px 28px -20px rgba(27,35,29,.30);
-    --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;
+  :root {
+    --bg: #E8EAF6;
+    --paper: #FFFFFF;
+    --ink: #1A1F36;
+    --sub: #6B7080;
+    --muted: #A0A6B8;
+    --accent: #4B5FD6;
+    --accent-soft: #EEF0FB;
+    --green: #1D9B6C;
+    --green-soft: #E6F6F1;
+    --amber: #D4820A;
+    --amber-soft: #FDF3E3;
+    --red: #D04040;
+    --red-soft: #FDEAEA;
+    --line: rgba(26,31,54,.08);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, "PingFang TC", sans-serif;
+    --shadow-sm: 0 1px 3px rgba(26,31,54,.06), 0 4px 12px rgba(26,31,54,.06);
+    --shadow: 0 2px 8px rgba(26,31,54,.08), 0 12px 32px rgba(26,31,54,.08);
   }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:var(--font);
-    line-height:1.62;letter-spacing:-.003em;-webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;font-variant-numeric:tabular-nums}
-  .wrap{max-width:480px;margin:0 auto;padding:0 16px 64px;position:relative}
+  *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #EBEBED;
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.5;
+  }
 
-  .hero{padding:36px 2px 16px}
-  .eyebrow{font-size:12px;letter-spacing:.02em;color:var(--leaf);font-weight:600;
-    margin:0 0 9px;display:flex;align-items:center;gap:9px}
-  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
-  .hero h1{font-size:38px;line-height:1.04;margin:0;font-weight:700;
-    letter-spacing:-.024em;color:var(--green)}
-  .hero h1 .yr{display:block;font-size:15px;letter-spacing:.01em;font-weight:600;
-    color:var(--soft);margin-top:9px}
-  .hero .lede{margin:14px 0 0;color:var(--soft);font-size:14px;max-width:35ch;font-weight:400}
-  .hero .lede b{color:var(--green2);font-weight:600}
+  /* ── layout ── */
+  .app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: transparent; }
 
-  .daynav{position:sticky;top:0;z-index:40;margin:18px -16px 0;padding:9px 16px;
-    background:rgba(242,244,239,.82);backdrop-filter:saturate(180%) blur(18px);
-    -webkit-backdrop-filter:saturate(180%) blur(18px);
-    border-bottom:1px solid var(--line);display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
-  .daynav::-webkit-scrollbar{display:none}
-  .pill{flex:0 0 auto;border:1px solid var(--line);background:var(--paper);
-    border-radius:980px;padding:6px 13px;font-size:13px;font-weight:600;
-    color:var(--soft);cursor:pointer;transition:all .2s ease;white-space:nowrap;letter-spacing:-.01em}
-  .pill small{font-weight:500;opacity:.65;margin-left:5px}
-  .pill[aria-current="true"]{background:var(--green);color:#F3F7F0;border-color:var(--green)}
+  /* ── header ── */
+  .topbar {
+    padding: 52px 20px 16px;
+    background: transparent;
+  }
+  .trip-eyebrow { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .04em; margin: 0 0 4px; text-transform: uppercase; }
+  .trip-title { font-size: 32px; font-weight: 800; color: var(--ink); letter-spacing: -.03em; margin: 0 0 4px; line-height: 1.1; }
+  .trip-title span { color: var(--accent); font-weight: 700; }
+  .trip-sub { font-size: 13px; color: var(--sub); font-weight: 500; margin: 0; }
 
-  .panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;
-    margin-top:14px;box-shadow:var(--shadow);overflow:hidden}
-  .panel>summary{list-style:none;cursor:pointer;padding:15px 16px;
-    display:flex;align-items:center;gap:11px;font-weight:600;font-size:15.5px;letter-spacing:-.01em}
-  .panel>summary::-webkit-details-marker{display:none}
-  .panel>summary .ico{font-size:18px;line-height:1}
-  .panel>summary .chev{margin-left:auto;color:var(--soft);transition:transform .24s ease;display:flex;align-items:center}
-  .panel[open]>summary .chev{transform:rotate(180deg)}
-  .panel .body{padding:2px 16px 15px;font-size:13.5px;color:var(--soft)}
-  .panel .body .row{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line2)}
-  .panel .body .row:first-child{border-top:none}
-  .panel .body .row .k{flex:0 0 64px;font-weight:700;color:var(--green2);font-size:13px}
-  .panel .body .row .v{flex:1}
-  .panel .body .row .v b{color:var(--ink);font-weight:600}
-  .mini{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:8px;
-    background:var(--sky-soft);color:var(--sky);margin-top:5px}
-  .who-key{display:flex;gap:7px;flex-wrap:wrap;margin-top:3px}
-  .who-key span{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:8px;background:#E8EAE6;color:var(--soft)}
-  .who-key b{color:var(--green)}
+  /* ── person switcher ── */
+  .switcher-wrap {
+    padding: 0 20px 14px; background: transparent;
+  }
+  .switcher {
+    display: flex; gap: 0;
+    background: rgba(0,0,0,.06); border-radius: 12px; padding: 4px;
+  }
+  .swbtn {
+    flex: 1; border: none; border-radius: 9px; padding: 9px 4px;
+    font-family: var(--font); font-size: 14px; font-weight: 600;
+    color: var(--sub); background: transparent;
+    cursor: pointer; transition: all .18s ease;
+  }
+  .swbtn.active { background: #FFFFFF; color: var(--accent); }
 
-  .day{scroll-margin-top:62px;padding-top:28px}
-  .dayhead{display:flex;align-items:flex-start;gap:14px;margin-bottom:2px}
-  .daynum{font-size:44px;line-height:.92;color:var(--green);flex:0 0 auto;letter-spacing:-.03em;font-weight:700}
-  .daynum small{display:block;font-size:11px;letter-spacing:.12em;color:var(--leaf);font-weight:600;margin-top:6px}
-  .daymeta{flex:1;padding-top:4px}
-  .daymeta .date{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-  .daymeta .date .dow{color:var(--soft);font-weight:500;margin-left:7px;font-size:13.5px}
-  .daymeta .sub{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-  .chip{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:980px;
-    border:1px solid var(--line);color:var(--soft);background:var(--paper)}
-  .chip.who{background:var(--green);color:#F3F7F0;border-color:var(--green)}
-  .chip.hotel{background:var(--amber-soft);color:var(--amber);border-color:transparent}
-  .daysummary{font-size:13px;color:var(--soft);margin:11px 0 6px;padding-left:2px}
+  /* ── day nav ── */
+  .daynav-wrap {
+    background: #EBEBED;
+    position: sticky; top: 0; z-index: 40;
+    padding-top: 0;
+  }
+  .daynav {
+    display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
+    padding: 10px 20px 12px;
+  }
+  .daynav::-webkit-scrollbar { display: none; }
+  .daypill {
+    flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;
+    padding: 7px 12px; border-radius: 10px; border: none;
+    background: transparent; cursor: pointer; transition: all .18s ease;
+    font-family: var(--font);
+  }
+  .daypill .wd { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
+  .daypill .dd { font-size: 17px; font-weight: 700; color: var(--sub); line-height: 1.1; }
+  .daypill.active { background: var(--accent); }
+  .daypill.active .wd, .daypill.active .dd { color: #fff; }
+  .daypill.dimday .wd, .daypill.dimday .dd { color: var(--muted); opacity: .45; }
 
-  .timeline{position:relative;margin-top:8px;padding-left:6px}
-  .stop{position:relative;padding:0 0 4px 30px}
-  .stop::before{content:"";position:absolute;left:6px;top:22px;bottom:-6px;width:2px;background:var(--line)}
-  .stop:last-child::before{display:none}
-  .dot{position:absolute;left:0;top:14px;width:14px;height:14px;border-radius:50%;
-    border:3px solid var(--paper);background:var(--leaf);box-shadow:0 0 0 1px var(--line)}
-  .dot.in{background:var(--sky)}.dot.hotel{background:var(--amber)}
-  .dot.logi{background:var(--soft)}.dot.food{background:var(--clay)}.dot.fly{background:#3E78A8}
+  /* ── feed ── */
+  .feed { padding: 8px 0 80px; background: #EBEBED; }
 
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;
-    margin:6px 0 12px;box-shadow:var(--shadow);overflow:hidden}
-  .card>.top{display:flex;align-items:flex-start;gap:11px;padding:13px 14px;cursor:pointer}
-  .time{flex:0 0 auto;font-weight:600;font-size:12.5px;color:var(--amber);min-width:44px;padding-top:2px;letter-spacing:-.01em}
-  .card h3{margin:0;font-size:16px;font-weight:600;line-height:1.34;letter-spacing:-.012em}
-  .card .area{font-size:12.5px;color:var(--soft);margin-top:2px;font-weight:400}
-  .openchev{margin-left:auto;color:var(--soft);opacity:.7;transition:transform .24s;flex:0 0 auto;display:flex;align-items:center;padding-top:3px}
-  .card.open .openchev{transform:rotate(180deg)}
-  .badges{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 13px}
-  .b{font-size:11px;font-weight:600;padding:3px 8px;border-radius:8px;display:inline-flex;gap:4px;align-items:center;letter-spacing:-.01em}
-  .b.out{background:#E2EFDD;color:var(--green2)}.b.in{background:var(--sky-soft);color:var(--sky)}
-  .b.hotel{background:var(--amber-soft);color:var(--amber)}.b.logi{background:#E8EAE6;color:var(--soft)}
-  .b.food{background:#F3E0D6;color:var(--clay)}.b.fly{background:var(--sky-soft);color:var(--sky)}
-  .b.hours{background:transparent;border:1px solid var(--line);color:var(--soft)}
-  .b.warn{background:#F3E0D6;color:var(--clay)}.b.go{background:var(--amber-soft);color:var(--amber)}
+  /* ── day section ── */
+  .day-section { padding: 20px 20px 4px; scroll-margin-top: 110px; }
+  .day-header {
+    display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px;
+  }
+  .day-date { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+  .day-dow { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: .03em; text-transform: uppercase; }
+  .day-hotel {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; font-weight: 600; color: var(--amber);
+    background: var(--amber-soft); padding: 3px 9px; border-radius: 8px; margin-bottom: 12px;
+  }
 
-  .reveal{max-height:0;overflow:hidden;transition:max-height .28s ease}
-  .card.open .reveal{max-height:480px}
-  .reveal .inner{padding:0 14px 14px;border-top:1px solid var(--line2);margin-top:2px}
-  .reveal .note{font-size:13.5px;color:var(--soft);padding-top:11px;font-weight:400}
-  .reveal .note b{color:var(--ink);font-weight:600}
-  .mapbtn{display:inline-flex;align-items:center;gap:7px;margin-top:12px;
-    background:var(--green);color:#F3F7F0;text-decoration:none;font-size:13px;font-weight:600;
-    padding:9px 15px;border-radius:11px;letter-spacing:-.01em}
-  .mapbtn:active{transform:translateY(1px)}
+  /* ── stop ── */
+  .timeline { position: relative; padding-left: 16px; }
+  /* 連續豎線：貫穿整個 timeline */
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 33px; top: 24px; bottom: 0;
+    width: 2px; background: #DDDDE2;
+  }
 
-  .foot{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
-  .foot .sig{font-weight:700;color:var(--green);font-size:16px;margin:0 0 4px;letter-spacing:-.015em}
-  .foot p{font-size:12px;color:var(--soft);margin:6px 0 0;font-weight:400}
-  .leafmark{text-align:center;color:var(--leaf);font-size:18px;margin:26px 0 0;opacity:.5}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .stop { display: flex; gap: 0; transition: opacity .2s; position: relative; }
+  .stop.dim { opacity: .18; pointer-events: none; }
+
+  /* 左側：固定寬，dot 在時間行高度中心 */
+  .stop-track {
+    flex: 0 0 36px; display: flex; flex-direction: column;
+    align-items: center; padding-top: 21px;
+    position: relative; z-index: 1;
+  }
+  .stop-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #BBBBC4; flex: 0 0 8px;
+  }
+  .stop-dot.fly, .stop-dot.hotel, .stop-dot.food, .stop-dot.logi { background: #BBBBC4; }
+
+  /* 右側內容 */
+  .stop-content { flex: 1; padding-right: 16px; padding-bottom: 4px; }
+
+  /* 時間行 */
+  .stop-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px;
+  }
+  .stop-time {
+    background: #E8E8EC; border-radius: 20px;
+    padding: 4px 11px; font-size: 12px; font-weight: 600;
+    color: #555; letter-spacing: -.01em; white-space: nowrap;
+  }
+  .stop-cat { margin-left: auto; font-size: 12px; font-weight: 600; color: #999; }
+
+  .stop-card {
+    flex: 1; background: var(--paper); border-radius: 14px;
+     overflow: hidden; margin-bottom: 2px;
+  }
+  .stop-main { padding: 0; cursor: pointer; }
+  .stop-name { padding: 0 14px 2px; font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; letter-spacing: -.01em; }
+  .stop-area-inner { padding: 0 14px 8px; font-size: 12px; color: var(--sub); }
+  .stop-name { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; letter-spacing: -.01em; }
+  .stop-area { font-size: 12px; color: var(--sub); margin-top: 2px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 14px 10px; }
+  .stop-top-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px 6px; }
+  .stop-type-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .stop-chev { display:flex; align-items:center; color: var(--muted); transition: transform .22s ease; flex:0 0 auto; }
+  .stop-chev.open { transform: rotate(180deg); }
+  .tag {
+    font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 7px;
+    display: inline-flex; align-items: center; gap: 3px;
+    background: #EBEBED; color: #555;
+  }
+  .tag.who-J, .tag.who-H, .tag.who-S { background: #EBEBED; color: #555; }
+
+  /* detail drawer */
+  .stop-detail { max-height: 0; overflow: hidden; transition: max-height .28s ease; }
+  .stop-detail.open { max-height: 400px; }
+  .stop-detail-inner {
+    padding: 0 14px 14px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--sub); line-height: 1.6;
+  }
+  .stop-detail-inner p { margin: 10px 0 0; }
+  .stop-detail-inner b { color: var(--ink); font-weight: 600; }
+  .mapbtn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; padding: 8px 14px; border-radius: 10px;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 600; text-decoration: none;
+  }
+
+  /* tips panel */
+  .tips-panel {
+    margin: 8px 20px; background: #FFFFFF; border-radius: 14px; border: 1px solid rgba(0,0,0,.06);
+    overflow: hidden;
+  }
+  .tips-toggle {
+    display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+    font-size: 14px; font-weight: 600; color: var(--ink);
+    cursor: pointer; border: none; background: none; width: 100%; font-family: var(--font);
+    text-align: left;
+  }
+  .tips-toggle .chev { margin-left: auto; color: var(--muted); transition: transform .22s; }
+  .tips-toggle.open .chev { transform: rotate(180deg); }
+  .tips-body { max-height: 0; overflow: hidden; transition: max-height .28s ease; }
+  .tips-body.open { max-height: 600px; }
+  .tips-row { display: flex; gap: 10px; padding: 9px 16px; border-top: 1px solid var(--line); font-size: 13px; }
+  .tips-k { flex: 0 0 70px; font-weight: 700; color: var(--accent); font-size: 12px; }
+  .tips-v { color: var(--sub); }
+  .tips-v b { color: var(--ink); font-weight: 600; }
+
+
+  /* ── flight card ── */
+  .flight-card {
+    background: #FFFFFF; border-radius: 16px; overflow: hidden;
+  }
+  .flight-route {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 18px 10px; gap: 10px;
+  }
+  .flight-airport { text-align: center; }
+  .flight-iata { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; line-height: 1; }
+  .flight-city { font-size: 11px; color: var(--muted); margin-top: 3px; font-weight: 500; }
+  .flight-line { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .flight-line hr { width: 100%; border: none; border-top: 1.5px solid #E0E0E6; margin: 0; }
+  .flight-plane { font-size: 14px; }
+  .flight-meta {
+    display: flex; border-top: 1px solid #F0F0F4;
+  }
+  .flight-meta-item {
+    flex: 1; padding: 10px 12px; text-align: center; border-right: 1px solid #F0F0F4;
+  }
+  .flight-meta-item:last-child { border-right: none; }
+  .flight-meta-label { font-size: 10.5px; color: var(--muted); font-weight: 500; margin-bottom: 2px; }
+  .flight-meta-value { font-size: 13px; font-weight: 700; color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="app">
+  <div class="topbar">
+    <p class="trip-eyebrow">2026 · 雨季</p>
+    <p class="trip-title">Bangkok <span>Trip</span></p>
+    <p class="trip-sub">7/2 – 7/9 &nbsp;·&nbsp; Jasmine · Haley · Shiro</p>
+  </div>
 
-  <header class="hero">
-    <p class="eyebrow">Bangkok · 雨季慢行</p>
-    <h1>曼谷 8 天<span class="yr">2026 · 7/2 – 7/9</span></h1>
-    <p class="lede">三人分批抵達，沿 <b>老城 → 華藍蓬 → Siam</b> 由北到南。雨季原則：<b>上午戶外、午後雷雨改室內</b>。點任一站可展開備註、一鍵開導航。</p>
-  </header>
 
-  <nav class="daynav" id="daynav" aria-label="選擇日期"></nav>
-
-  <details class="panel" id="logi">
-    <summary><span class="ico">✈️</span>航班 · 接駁 · 搬家<span class="chev"><svg viewBox="0 0 14 14" width="13" height="13" aria-hidden="true"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-    <div class="body">
-      <div class="row"><div class="k" style="flex-basis:auto">人物</div><div class="v"><div class="who-key"><span><b>H</b> · <b>J</b>　朋友（香港）</span><span><b>S</b>　你（台北）</span></div></div></div>
-      <div class="row"><div class="k">H</div><div class="v">CX617　HKG → <b>BKK 蘇凡納布</b>　7/2 22:10 → <b>7/3 00:10</b></div></div>
-      <div class="row"><div class="k">J</div><div class="v">UO732　HKG → <b>BKK 蘇凡納布</b>　7/2 ~21:48 → 午夜前後</div></div>
-      <div class="row"><div class="k">S</div><div class="v">SL395　TPE → <b>DMK 廊曼 T1</b>　7/4 21:20 → <b>7/5 00:10</b></div></div>
-      <div class="row"><div class="k">H&amp;J 回</div><div class="v">UO703　<b>BKK 蘇凡納布</b> → HKG　7/9 <b>19:40 → 23:40</b>（傍晚班）</div></div>
-      <div class="row"><div class="k">S 回</div><div class="v">SL396　<b>DMK 廊曼</b> → TPE 桃園　7/9 <b>03:00 → 07:55</b><br><span class="mini">⚠️ 凌晨紅眼，時間／星期請以訂位確認單為準</span></div></div>
-      <div class="row"><div class="k">凌晨</div><div class="v">去程三人都先在機場周邊睡，白天再進城會合。</div></div>
-      <div class="row"><div class="k">住宿</div><div class="v">Samsen <b>7/3–7/5</b> → Tamni <b>7/5–7/7</b> → Happy 3 <b>7/7–7/9</b><br><span class="mini">搬家日 7/5 · 7/7：先寄放行李，午後再 check-in</span></div></div>
+  <div class="daynav-wrap">
+    <div class="switcher-wrap">
+      <div class="switcher">
+        <button class="swbtn" data-who="J" onclick="setWho('J')">Jasmine</button>
+        <button class="swbtn" data-who="H" onclick="setWho('H')">Haley</button>
+        <button class="swbtn" data-who="S" onclick="setWho('S')">Shiro</button>
+      </div>
     </div>
-  </details>
+    <div class="daynav" id="daynav"></div>
+  </div>
 
-  <details class="panel" id="tips">
-    <summary><span class="ico">📌</span>重點提醒<span class="chev"><svg viewBox="0 0 14 14" width="13" height="13" aria-hidden="true"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-    <div class="body">
-      <div class="row"><div class="k">雨季</div><div class="v">7 月多為午後到傍晚一場雷雨，上午多晴。戶外排早、室內留午後。</div></div>
-      <div class="row"><div class="k">公休</div><div class="v"><b>國家博物館</b> 週一二休 · <b>Museum Siam／BACC／Hong Sieng Kong</b> 週一休 · <b>恰圖恰</b>只開週末 · <b>Safari World</b> 週一休。行程已全避開。</div></div>
-      <div class="row"><div class="k">Safari World</div><div class="v">門票先在 <b>Klook</b> 訂較便宜、免排隊。紅毛猩猩拳擊秀有動物福利爭議，可自行斟酌；開車野生動物區、餵長頸鹿較無爭議。</div></div>
-      <div class="row"><div class="k">包車</div><div class="v">7/7 是搬家日。跟包車行談<b>全日含等候</b>，行李整天放車上，回程直送 Happy 3。</div></div>
+  <div class="feed">
+    <div class="tips-panel" id="tips-panel">
+      <button class="tips-toggle" id="tips-toggle" onclick="toggleTips()">
+        重點提醒
+        <span class="chev"><svg viewBox="0 0 14 14" width="13" height="13"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="tips-body" id="tips-body">
+        <div class="tips-row"><div class="tips-k">雨季</div><div class="tips-v">午後到傍晚雷雨，上午多晴。戶外排早、室內留午後。</div></div>
+        <div class="tips-row"><div class="tips-k">公休</div><div class="tips-v"><b>國家博物館</b>週一二休・<b>BACC／Hong Sieng Kong</b>週一休・<b>恰圖恰</b>只開週末・<b>Safari World</b>週一休。已全避開。</div></div>
+        <div class="tips-row"><div class="tips-k">Safari World</div><div class="tips-v">Klook 先訂票較便宜。</div></div>
+        <div class="tips-row"><div class="tips-k">包車</div><div class="tips-v">7/7 搬家日，談全日含等候，行李整天放車上，回程直送 Happy 3。</div></div>
+        <div class="tips-row"><div class="tips-k">住宿</div><div class="tips-v">Samsen 7/3–7/5 → Tamni(J) / C'HOUSE(H&S) 7/5–7/7 → Happy 3 7/7–7/9</div></div>
+      </div>
     </div>
-  </details>
-
-  <main id="days"></main>
-
-  <footer class="foot">
-    <p class="sig">收行李前，先看一眼天空</p>
-    <p>上午把戶外走完，午後雷雨就鑽進博物館、商場、咖啡館。行程是參考，不是考卷——累了就跳過一站，曼谷哪天都好玩。</p>
-    <p>營業時間與門票為查詢當下資訊，出發前再快速確認一次最保險。</p>
-    <div class="leafmark">❧</div>
-  </footer>
-
+    <div id="days-container"></div>
+  </div>
 </div>
 
 <script>
-const M = "https://maps.google.com/?cid=";
+const M = 'https://maps.google.com/?cid=';
+
+const FLIGHTS = {
+  'UO732': {from:'HKG',fromCity:'香港',to:'BKK',toCity:'曼谷',airline:'HK Express',code:'UO 732'},
+  'CX617': {from:'HKG',fromCity:'香港',to:'BKK',toCity:'曼谷',airline:'國泰',code:'CX 617'},
+  'SL395': {from:'TPE',fromCity:'台北',to:'DMK',toCity:'廊曼',airline:'Thai Lion',code:'SL 395'},
+  'UO703': {from:'BKK',fromCity:'曼谷',to:'HKG',toCity:'香港',airline:'HK Express',code:'UO 703'},
+  'SL396': {from:'DMK',fromCity:'廊曼',to:'TPE',toCity:'台北',airline:'Thai Lion',code:'SL 396'},
+};
+function flightKey(name){ return Object.keys(FLIGHTS).find(k=>name.includes(k)); }
+
+const CHV = '<svg viewBox="0 0 14 14" width="12" height="12"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
 const days = [
-  { n:1, date:"7/2", dow:"Thu", who:"H&J 啟程", hotel:"機上 / 機場", area:"HKG → BKK",
-    summary:"H 與 J 今晚從香港飛曼谷，跨夜班、午夜後落地。S 還在台北，7/4 才出發。",
+  { n:1, date:'7/2', dow:'THU', hotel:{ all:'機上' },
+    summary:'Jasmine & Haley 今晚從香港起飛，Shiro 還在台北。',
     stops:[
-      { t:"21:48", k:"fly", name:"J：UO732　HKG → BKK 蘇凡納布", area:"香港起飛", maps:null,
-        badges:[["fly","HK Express"]], note:"HK Express，約 21:48 從香港起飛，落地 BKK 蘇凡納布約午夜前後。" },
-      { t:"22:10", k:"fly", name:"H：CX617　HKG → BKK 蘇凡納布", area:"香港起飛", maps:null,
-        badges:[["fly","Cathay 國泰"]], note:"國泰，22:10 起飛，航程約 3 小時，<b>7/3 00:10 落地</b> BKK 蘇凡納布。" },
+      { t:'21:48', k:'fly', who:['J'], name:'UO732　HKG → BKK', area:'香港 → 蘇凡納布', maps:null,
+        tags:[['fly','航班'],['type-hours','HK Express']], note:'約 21:48 起飛，落地 BKK 蘇凡納布約午夜前後。' },
+      { t:'22:10', k:'fly', who:['H'], name:'CX617　HKG → BKK', area:'香港 → 蘇凡納布', maps:null,
+        tags:[['fly','航班'],['type-hours','國泰']], note:'22:10 起飛，<b>7/3 00:10 落地</b> BKK 蘇凡納布。' },
     ]},
-  { n:2, date:"7/3", dow:"Fri", who:"H&J", hotel:"Samsen Street Hotel", area:"老城 Phra Nakhon",
-    summary:"H、J 凌晨落地 BKK，就近補眠，白天進城。下午 Samsen check-in，傍晚老城河濱＋考山路，第一天放最鬆。",
+  { n:2, date:'7/3', dow:'FRI', hotel:{ JH:'Samsen Street Hotel', ci:'14:00', co:'12:00' },
+    summary:'Jasmine & Haley 凌晨落地補眠，白天進城 check-in。',
     stops:[
-      { t:"00:10", k:"fly", name:"H、J 落地 BKK 蘇凡納布", area:"蘇凡納布機場", maps:null,
-        badges:[["fly","抵達"]], note:"CX617（00:10）與 UO732（午夜前後）都落在 <b>同一個機場 BKK 蘇凡納布</b>，H 與 J 入境大廳會合、共乘。" },
-      { t:"凌晨", k:"logi", name:"機場周邊飯店 / Sleep box", area:"蘇凡納布", maps:null,
-        badges:[], note:"就近補眠，白天再進城。" },
-      { t:"午後", k:"hotel", name:"進城 → Samsen Street Hotel", area:"老城", maps:M+"1167124485912180182",
-        badges:[["warn","下午才 check-in"]], note:"BKK → 老城約 40–50 分（白天有車流）。可搭機場快線 ARL 到 Phaya Thai 轉車，或 Grab 一車到底。<b>建議先寫信要 early check-in 或寄放行李。</b>" },
-      { t:"傍晚", k:"out", name:"Phra Athit 河濱 + 考山路", area:"老城", maps:M+"1167124485912180182",
-        badges:[["food","覓食"]], note:"聖猜帕剌堡公園吹河風散步，考山路一帶覓食。重點行程留給隔天。" },
+      { t:'00:10', k:'fly',  who:['J','H'], name:'落地 BKK 蘇凡納布', area:'蘇凡納布機場', maps:null,
+        tags:[['fly','抵達']], note:'兩班都落在 BKK 蘇凡納布，入境大廳會合共乘。' },
+      { t:'凌晨',  k:'logi', who:['J','H'], name:'機場周邊補眠', area:'蘇凡納布', maps:null,
+        tags:[['logi','接駁']], note:'Sleep box 或機場旁飯店，白天再進城。' },
+      { t:'午後',  k:'hotel',who:['J','H'], name:'Samsen Street Hotel', area:'老城 Phra Nakhon', maps:M+'1167124485912180182',
+        tags:[['hotel','住宿'],['type-hours','CI 14:00'],['type-hours','CO 12:00'],['warn','先寄放行李']], note:'BKK → 老城約 40–50 分。機場快線 ARL 到 Phaya Thai 轉車，或 Grab 直達。提早聯絡飯店寄放行李。' },
+      { t:'傍晚',  k:'out',  who:['J','H'], name:'Phra Athit 河濱 + 考山路', area:'老城', maps:M+'1167124485912180182',
+        tags:[['type-out','室外'],['food','🍜 覓食']], note:'聖猜帕剌堡公園吹河風散步，考山路一帶覓食。' },
     ]},
-  { n:3, date:"7/4", dow:"Sat", who:"H&J（S 今晚飛）", hotel:"Samsen Street Hotel", area:"恰圖恰 Chatuchak",
-    summary:"H、J 逛週末限定的恰圖恰（植物＋漂亮小店）；S 今晚從台北出發。",
+  { n:3, date:'7/4', dow:'SAT', hotel:{ JH:'Samsen Street Hotel' },
+    summary:'Jasmine & Haley 逛恰圖恰週末市集。Shiro 今晚台北起飛。',
     stops:[
-      { t:"09:30", k:"out", name:"恰圖恰週末市集", area:"Chatuchak", maps:M+"10516346959717498187",
-        badges:[["hours","週末 ~09:00–18:00"],["warn","只開週末"]], note:"植物區、JJ Green 文青古物超好逛。早上 9–10 點到，避開最熱與午後雷雨。中暑注意、帶水。" },
-      { t:"傍晚", k:"food", name:"回老城晚餐 · 休息", area:"老城", maps:null,
-        badges:[], note:"逛累了搭 MRT 回老城，附近小店吃飯早點休息。" },
-      { t:"21:20", k:"fly", name:"S：SL395　TPE → DMK 廊曼", area:"台北起飛", maps:null,
-        badges:[["fly","Thai Lion Air"]], note:"S 21:20 從台北桃園起飛，跨夜班，<b>7/5 00:10 落地廊曼 DMK 第一航廈</b>。" },
+      { t:'09:30', k:'out',  who:['J','H'], name:'恰圖恰週末市集', area:'Chatuchak', maps:M+'10516346959717498187',
+        tags:[['type-out','室外'],['warn','只開週末'],['type-hours','09:00–18:00']], note:'植物區、JJ Green 文青古物超好逛。早上到避開最熱與午後雷雨。帶水。' },
+      { t:'傍晚',  k:'food', who:['J','H'], name:'回老城晚餐', area:'老城', maps:null,
+        tags:[['food','美食']], note:'搭 MRT 回老城，附近小店吃飯。' },
+      { t:'21:20', k:'fly',  who:['S'],     name:'SL395　TPE → DMK', area:'台北 → 廊曼', maps:null,
+        tags:[['fly','航班'],['type-hours','Thai Lion']], note:'21:20 從桃園起飛，<b>7/5 00:10 落地廊曼 DMK 第一航廈</b>。' },
     ]},
-  { n:4, date:"7/5", dow:"Sun", who:"三人會合", hotel:"Tamni", area:"華藍蓬 · Talat Noi",
-    summary:"S 凌晨剛到、會累，這天放軟。H、J 早上就近收國家博物館（這區唯一開館日），中午 Tamni 三人會合，下午 Talat Noi 老街咖啡。",
+  { n:4, date:'7/5', dow:'SUN', hotel:{ J:'Tamni', HS:"C'HOUSE Bangkok", ci:'14:00', co:'12:00' },
+    summary:'Shiro 凌晨到先補眠。Jasmine & Haley 早上收博物館，中午各自 check-in，下午三人 Talat Noi 會合。',
     stops:[
-      { t:"00:10", k:"fly", name:"S 落地 DMK 廊曼 · 機場旅館", area:"廊曼機場", maps:null,
-        badges:[["fly","抵達"]], note:"SL395 00:10 落地。S 出關後到機場周邊旅館補眠，睡飽再進城。" },
-      { t:"早上", k:"logi", name:"S：DMK 旅館 → Tamni 會合", area:"廊曼 → 華藍蓬", maps:M+"3701525884649358875",
-        badges:[], note:"DMK → Tamni 約 30–40 分，帶行李建議 Grab；省錢可搭 SRT 紅線到 Bang Sue 轉 MRT 到 Hua Lamphong。Tamni 可先寄放行李、在交誼廳休息。" },
-      { t:"早上", k:"in", name:"H&J：國家博物館", area:"老城", maps:M+"6196572513515142459",
-        badges:[["hours","週三–日 8:30–16:00"],["warn","週一二休 · 只剩今天"]], note:"東南亞最大博物館之一、冷氣超強。<b>週一二都休</b>，是這區唯一的開館日；睡飽的 H、J 早上先收，再帶行李過來 Tamni。沒體力就直接過來，不強求。" },
-      { t:"中午", k:"hotel", name:"Tamni check-in · 三人會合", area:"華藍蓬", maps:M+"3701525884649358875",
-        badges:[], note:"這間 hostel 本身滿滿植物、超美中庭，S 會很愛。放好行李再出門。" },
-      { t:"下午", k:"out", name:"Talat Noi 老街 + Hong Sieng Kong", area:"Talat Noi", maps:M+"3133854231122515847",
-        badges:[["hours","咖啡 週二–日 10:00–20:00"],["food","咖啡"]], note:"河畔老宅改建咖啡館，古董＋綠植＋河景超好拍；順遊周邊街頭塗鴉、老車巷弄。低耗能、好拍，當三人第一個共同行程剛剛好。" },
+      { t:'00:10', k:'fly',  who:['S'],        name:'落地 DMK 廊曼', area:'廊曼機場', maps:null,
+        tags:[['fly','抵達']], note:'SL395 00:10 落地。機場周邊旅館補眠，睡飽再進城。' },
+      { t:'早上',  k:'in',   who:['J','H'],    name:'國家博物館', area:'老城', maps:M+'6196572513515142459',
+        tags:[['type-in','室內'],['warn','週一二休'],['type-hours','08:30–16:00']], note:'東南亞最大博物館，冷氣超強。這是在這區唯一的開館日，沒體力就直接來 Tamni。' },
+      { t:'早上',  k:'logi', who:['S'],        name:'DMK → 市區', area:'廊曼 → 華藍蓬', maps:null,
+        tags:[['logi','接駁']], note:'帶行李建議 Grab（30–40 分）。Tamni / C\'HOUSE 可先寄放行李。' },
+      { t:'中午',  k:'hotel',who:['J'],        name:'Tamni check-in', area:'華藍蓬', maps:M+'3701525884649358875',
+        tags:[['hotel','住宿'],['type-hours','CI 14:00'],['type-hours','CO 12:00']], note:'滿滿植物、超美中庭。' },
+      { t:'中午',  k:'hotel',who:['H','S'],    name:"C'HOUSE Bangkok check-in", area:'華藍蓬', maps:null,
+        tags:[['hotel','住宿'],['type-hours','CI 14:00'],['type-hours','CO 12:00']], note:'Haley & Shiro 住這間，放好行李再去會合。' },
+      { t:'下午',  k:'out',  who:['J','H','S'],name:'Talat Noi + Hong Sieng Kong', area:'Talat Noi', maps:M+'3133854231122515847',
+        tags:[['type-out','室外'],['food','咖啡'],['warn','週一休'],['type-hours','10:00–20:00']], note:'河畔老宅改建咖啡館，古董＋綠植＋河景超好拍。三人第一個共同行程。' },
     ]},
-  { n:5, date:"7/6", dow:"Mon", who:"三人", hotel:"Tamni", area:"植物 · 商場 · 中國城",
-    summary:"週一是公休魔王日，專挑不受影響的點：綠意公園、植栽商場、中國城夜食。",
+  { n:5, date:'7/6', dow:'MON', hotel:{ J:'Tamni', HS:"C'HOUSE Bangkok" },
+    summary:'週一三人同行：森林公園、植栽商場、中國城夜食。',
     stops:[
-      { t:"09:00", k:"out", name:"Benjakitti 森林公園", area:"Asok", maps:M+"2823609184013040630",
-        badges:[["hours","每天 4:30–22:00"]], note:"市中心最美濕地森林公園，空中綠廊每天開。早上涼爽好走，愛植物必訪。" },
-      { t:"11:30", k:"in", name:"EmQuartier 商場", area:"Phrom Phong", maps:M+"3680664228700598362",
-        badges:[["hours","每天 10:00–22:00"]], note:"有室內熱帶花園＋瀑布的漂亮商場，午後雷雨在這吹冷氣逛設計小店。BTS Phrom Phong 直達。" },
-      { t:"18:00", k:"out", name:"Yaowarat 中國城", area:"Chinatown", maps:M+"6369365766619019010",
-        badges:[["food","街頭小吃"]], note:"傍晚回中國城吃街頭小吃，霓虹燈＋人氣氛圍。離 Tamni 很近。" },
+      { t:'09:00', k:'out',  who:['J','H','S'],name:'Benjakitti 森林公園', area:'Asok', maps:M+'2823609184013040630',
+        tags:[['type-out','室外'],['type-hours','每天 04:30–22:00']], note:'市中心最美濕地森林，空中綠廊每天開。' },
+      { t:'11:30', k:'in',   who:['J','H','S'],name:'EmQuartier', area:'Phrom Phong', maps:M+'3680664228700598362',
+        tags:[['type-in','室內'],['type-hours','每天 10:00–22:00']], note:'室內熱帶花園＋瀑布，午後雷雨在這逛設計小店。BTS Phrom Phong 直達。' },
+      { t:'18:00', k:'out',  who:['J','H','S'],name:'Yaowarat 中國城', area:'Chinatown', maps:M+'6369365766619019010',
+        tags:[['food','街頭小吃']], note:'霓虹燈＋人氣氛圍。離 Tamni / C\'HOUSE 很近。' },
     ]},
-  { n:6, date:"7/7", dow:"Tue", who:"三人 · 搬家日", hotel:"Happy 3", area:"Safari World 包車",
-    summary:"包車 Safari World 一日遊，同時是搬家日。行李整天放車上，回程直送 Happy 3，不用兩頭跑。",
+  { n:6, date:'7/7', dow:'TUE', hotel:{ all:'Happy 3', ci:'14:00', co:'12:00' },
+    summary:'包車 Safari World 一日遊＋搬家日。行李整天放車上，回程直送 Happy 3。',
     stops:[
-      { t:"08:00", k:"logi", name:"Tamni 退房 · 包車集合", area:"華藍蓬", maps:M+"3701525884649358875",
-        badges:[["warn","行李上車"]], note:"退房後行李直接放包車車上；回程再卸到 Happy 3（或出發前先繞去寄放）。" },
-      { t:"09:30", k:"out", name:"Safari World", area:"Minburi（東北）", maps:M+"6707430742683712364",
-        badges:[["hours","週二 9:00–17:00"],["go","Klook 先訂票"]], note:"包車約 1 小時到。分 <b>Safari Park（開車穿越野生動物區）</b>＋<b>Marine Park（海豚／海獅／鳥秀）</b>，餵長頸鹿是亮點。早到先看戶外表演，避午後雷雨。紅毛猩猩拳擊秀有爭議，可自行斟酌。" },
-      { t:"17:00", k:"hotel", name:"回程卸 Happy 3 · check-in", area:"Siam", maps:M+"4393359842698677310",
-        badges:[], note:"包車載回 Siam，卸行李、check-in。離 Banthat Thong 美食街步行可達。" },
-      { t:"晚上", k:"food", name:"Banthat Thong 美食街", area:"Siam", maps:M+"8547386420975814923",
-        badges:[["food","曼谷年輕人最愛"]], note:"曼谷年輕人最愛的美食街，比中國城更好逛好坐。離 Happy 3 步行可達。" },
+      { t:'08:00', k:'logi', who:['J','H','S'],name:'退房 · 包車集合', area:'華藍蓬', maps:null,
+        tags:[['logi','包車'],['warn','行李上車']], note:'Jasmine 從 Tamni、Haley & Shiro 從 C\'HOUSE 退房，行李直接放車上。' },
+      { t:'09:30', k:'out',  who:['J','H','S'],name:'Safari World', area:'Minburi（東北）', maps:M+'6707430742683712364',
+        tags:[['type-out','室外'],['go','Klook 先訂'],['type-hours','週二 09:00–17:00']], note:'包車約 1 小時。<b>Safari Park</b>（車遊野生動物）＋<b>Marine Park</b>（海豚海獅鳥秀），餵長頸鹿是亮點。早到先看戶外表演，避午後雷雨。' },
+      { t:'17:00', k:'hotel',who:['J','H','S'],name:'Happy 3 check-in', area:'Siam', maps:M+'4393359842698677310',
+        tags:[['hotel','住宿'],['type-hours','CI 14:00'],['type-hours','CO 12:00']], note:'包車直送，卸行李 check-in。' },
+      { t:'晚上',  k:'food', who:['J','H','S'],name:'Banthat Thong 美食街', area:'Siam', maps:M+'8547386420975814923',
+        tags:[['food','美食']], note:'曼谷年輕人最愛的美食街，步行可達。' },
     ]},
-  { n:7, date:"7/8", dow:"Wed", who:"三人（S 今晚紅眼離境）", hotel:"Happy 3", area:"絲綢之家 · 水族館 · Siam",
-    summary:"已經搬完，今天就近玩 Siam。Jim Thompson 在飯店隔壁巷，下午水族館＋設計商圈，全部走路可達、雨天不淋。",
+  { n:7, date:'7/8', dow:'WED', hotel:{ all:'Happy 3' },
+    summary:'就近玩 Siam。Jim Thompson 在隔壁巷，下午水族館＋商圈。Shiro 深夜紅眼離境。',
     stops:[
-      { t:"10:00", k:"in", name:"Jim Thompson 絲綢之家", area:"Siam（隔壁巷）", maps:M+"16826663638430487320",
-        badges:[["hours","每天 10:00–17:00"]], note:"就在 Happy 3 隔壁巷！柚木老宅＋熱帶花園，植物與歷史一次滿足，鬧區裡的綠洲。一開門就到人少。" },
-      { t:"13:00", k:"in", name:"Sea Life 水族館", area:"Siam Paragon", maps:M+"15926310662050661968",
-        badges:[["hours","每天 10:00–20:00"]], note:"Siam Paragon 地下室，海底隧道＋企鵝水母。市區最方便的『看動物』選擇，全室內躲雨。" },
-      { t:"15:30", k:"in", name:"BACC + Siam 商圈", area:"Siam", maps:M+"2220277415128995083",
-        badges:[["hours","週二–日 10:00–20:00"]], note:"免費當代藝術館＋設計小店。Paragon／Center／Discovery／MBK 空橋相連，設計商場整下午逛不完，雨天完全不淋。" },
-      { t:"晚上", k:"food", name:"Siam 一帶晚餐 · 自由", area:"Siam", maps:null,
-        badges:[["food","自由"]], note:"三人最後一起的夜晚，回味喜歡的點或在 Siam 吃頓好的。H&J 還有一整個明天。" },
-      { t:"深夜", k:"logi", name:"S：前往 DMK 機場（搭 03:00 SL396）", area:"Siam → 廊曼", maps:null,
-        badges:[["warn","紅眼 · 待確認"]], note:"<b>若 SL396 確為 7/9 凌晨 03:00</b>：S 約 23:30–00:00 就要從 Siam 出發去 DMK（約 40–50 分），先退房／寄放、結清。建議今天先跟 Happy 3 講好深夜離店。<b>請務必用訂位確認單核對班機時間。</b>" },
+      { t:'10:00', k:'in',   who:['J','H','S'],name:'Jim Thompson 絲綢之家', area:'Siam（隔壁巷）', maps:M+'16826663638430487320',
+        tags:[['type-in','室內'],['type-hours','每天 10:00–17:00']], note:'Happy 3 隔壁巷！柚木老宅＋熱帶花園。一開門到人少。' },
+      { t:'13:00', k:'in',   who:['J','H','S'],name:'Sea Life 水族館', area:'Siam Paragon', maps:M+'15926310662050661968',
+        tags:[['type-in','室內'],['type-hours','每天 10:00–20:00']], note:'Siam Paragon 地下室，海底隧道＋企鵝水母。全室內躲雨。' },
+      { t:'15:30', k:'in',   who:['J','H','S'],name:'BACC + Siam 商圈', area:'Siam', maps:M+'2220277415128995083',
+        tags:[['type-in','室內'],['warn','週一休'],['type-hours','10:00–20:00']], note:'免費當代藝術館。Paragon／Center／Discovery／MBK 空橋相連，整下午逛不完。' },
+      { t:'晚上',  k:'food', who:['J','H','S'],name:'Siam 晚餐 · 最後一夜', area:'Siam', maps:null,
+        tags:[['food','自由']], note:'三人最後一起的夜晚。Jasmine & Haley 還有一整個明天。' },
+      { t:'深夜',  k:'logi', who:['S'],        name:'前往 DMK（SL396 03:00）', area:'Siam → 廊曼', maps:null,
+        tags:[['warn','Shiro 紅眼'],['logi','接駁']], note:'<b>SL396 時間待確認</b>，請以訂位單為準。若確為 03:00，約 23:30 從 Siam 出發。先跟 Happy 3 講好深夜離店。' },
     ]},
-  { n:8, date:"7/9", dow:"Thu", who:"H&J 末日 · S 凌晨已離境", hotel:"—", area:"離境",
-    summary:"S 是凌晨紅眼，等於昨晚就走了。H&J 白天還能玩到傍晚，晚上才從蘇凡納布飛回香港。",
+  { n:8, date:'7/9', dow:'THU', hotel:{ all:'—' },
+    summary:'Shiro 凌晨已離境。Jasmine & Haley 白天玩到傍晚再飛香港。',
     stops:[
-      { t:"03:00", k:"fly", name:"S：SL396　DMK → TPE 桃園", area:"廊曼機場", maps:null,
-        badges:[["fly","Thai Lion Air · 紅眼"],["warn","待確認"]], note:"DMK 約 03:00 起飛、<b>07:55 落地桃園</b>。⚠️ 此班星期／時間我查到有出入，務必以訂位確認單為準。" },
-      { t:"上午", k:"hotel", name:"H&J：Happy 3 退房 · 寄放行李", area:"Siam", maps:M+"4393359842698677310",
-        badges:[], note:"退房後寄放行李，輕裝玩最後半天。" },
-      { t:"日間", k:"out", name:"H&J：Jim Thompson 咖啡 / Siam 採買", area:"Siam", maps:M+"16826663638430487320",
-        badges:[["food","自由"]], note:"沒去過的點補一下，或在 Siam 吃早午餐、買伴手禮。傍晚前回飯店拿行李。" },
-      { t:"16:30", k:"logi", name:"H&J → BKK 蘇凡納布機場", area:"Siam → 蘇凡納布", maps:null,
-        badges:[["warn","非廊曼"]], note:"<b>UO703 從蘇凡納布（BKK）飛，不是廊曼。</b>Happy 3 → 蘇凡納布約 45–60 分，雨季交通保守估、提早出發。可搭 ARL 或 Grab。" },
-      { t:"19:40", k:"fly", name:"H&J：UO703　BKK 蘇凡納布 → HKG", area:"曼谷起飛", maps:null,
-        badges:[["fly","HK Express"]], note:"19:40 起飛、<b>23:40 抵達香港</b>。每天有飛。" },
+      { t:'03:00', k:'fly',  who:['S'],    name:'SL396　DMK → TPE', area:'廊曼 → 桃園', maps:null,
+        tags:[['fly','航班'],['warn','待確認']], note:'約 03:00 起飛，<b>07:55 落地桃園</b>。請以訂位確認單核對。' },
+      { t:'上午',  k:'hotel',who:['J','H'],name:'Happy 3 退房 · 寄行李', area:'Siam', maps:M+'4393359842698677310',
+        tags:[['hotel','退房'],['type-hours','CO 12:00']], note:'退房後寄放行李，輕裝玩最後半天。' },
+      { t:'日間',  k:'out',  who:['J','H'],name:'Jim Thompson 咖啡 / Siam 採買', area:'Siam', maps:M+'16826663638430487320',
+        tags:[['type-out','🌿 自由']], note:'補沒去的點，或吃早午餐、買伴手禮。' },
+      { t:'16:30', k:'logi', who:['J','H'],name:'前往 BKK 蘇凡納布機場', area:'Siam → 蘇凡納布', maps:null,
+        tags:[['logi','接駁'],['warn','非廊曼']], note:'<b>UO703 從蘇凡納布（BKK）飛，不是廊曼。</b>約 45–60 分，雨季保守估、提早出發。' },
+      { t:'19:40', k:'fly',  who:['J','H'],name:'UO703　BKK → HKG', area:'蘇凡納布 → 香港', maps:null,
+        tags:[['fly','航班'],['type-hours','HK Express']], note:'19:40 起飛，<b>23:40 抵港</b>。' },
     ]},
 ];
 
-const kLabel = { out:["out","🌿 室外"], in:["in","☔ 室內·雨天OK"], hotel:["hotel","🏨 住宿"], logi:["logi","🚕 接駁"], food:["food","🍜 美食"], fly:["fly","✈️ 航班"] };
+const WHO_COLOR = { J:'who-J', H:'who-H', S:'who-S' };
+const WHO_LABEL = { J:'Jasmine', H:'Haley', S:'Shiro' };
+let activeWho = null;
 
-const nav = document.getElementById("daynav");
-days.forEach(d=>{
-  const b=document.createElement("button");
-  b.className="pill";b.dataset.target="day"+d.n;
-  b.innerHTML='D'+d.n+' <small>'+d.date+'</small>';
-  b.onclick=()=>document.getElementById("day"+d.n).scrollIntoView({behavior:"smooth",block:"start"});
-  nav.appendChild(b);
-});
+function hotelLine(d) {
+  const h = d.hotel;
+  if (!h) return '';
+  let name = h.all || (activeWho === 'J' ? h.J : activeWho === 'H' ? h.H || h.HS : activeWho === 'S' ? h.S || h.HS : null);
+  if (!name) {
+    // Show both if no filter
+    if (h.J && h.HS) name = `Tamni (J) · C'HOUSE (H&S)`;
+    else if (h.JH) name = h.JH;
+    else if (h.all) name = h.all;
+  }
+  if (!name || name === '—') return '';
+  let ci = h.ci ? ` · CI ${h.ci}` : '';
+  let co = h.co ? ` · CO ${h.co}` : '';
+  return `<div class="day-hotel">${name}${ci}${co}</div>`;
+}
 
-const host=document.getElementById("days");
-days.forEach(d=>{
-  const sec=document.createElement("section");
-  sec.className="day";sec.id="day"+d.n;
-  let stops="";
-  d.stops.forEach(s=>{
-    const kl=kLabel[s.k];
-    let badges='<span class="b '+kl[0]+'">'+kl[1]+'</span>';
-    (s.badges||[]).forEach(x=>{ badges+='<span class="b '+x[0]+'">'+x[1]+'</span>'; });
-    const map = s.maps ? '<a class="mapbtn" href="'+s.maps+'" target="_blank" rel="noopener">📍 開地圖導航</a>' : '';
-    stops+=`
-      <div class="stop">
-        <span class="dot ${s.k}"></span>
-        <div class="card">
-          <div class="top" role="button" tabindex="0">
-            <span class="time">${s.t}</span>
-            <div>
-              <h3>${s.name}</h3>
-              <div class="area">${s.area}</div>
+function buildDays() {
+  const container = document.getElementById('days-container');
+  container.innerHTML = '';
+
+  days.forEach(d => {
+    const sec = document.createElement('div');
+    sec.className = 'day-section';
+    sec.id = 'day' + d.n;
+
+    let stopsHtml = '<div class="timeline">';
+    d.stops.forEach((s, i) => {
+      const isLast = i === d.stops.length - 1;
+      const dim = activeWho && !s.who.includes(activeWho) ? ' dim' : '';
+
+      // 類型標籤排第一，人名縮寫排後
+      let typeTags = s.tags.map(([cls, label]) => `<span class="tag ${cls}">${label}</span>`).join('');
+      let whoTags = s.who.map(w => `<span class="tag ${WHO_COLOR[w]}">${w}</span>`).join('');
+      let tagsHtml = typeTags + whoTags;
+
+      const map = s.maps ? `<a class="mapbtn" href="${s.maps}" target="_blank" rel="noopener">地圖</a>` : '';
+
+      let cardHtml;
+      const fk = flightKey(s.name);
+      if (s.k === 'fly' && fk) {
+        const f = FLIGHTS[fk];
+        cardHtml = `
+          <div class="flight-card" onclick="toggleStop('${d.n}-${i}')">
+            <div class="flight-route">
+              <div class="flight-airport">
+                <div class="flight-iata">${f.from}</div>
+                <div class="flight-city">${f.fromCity}</div>
+              </div>
+              <div class="flight-line">
+                <span class="flight-plane">✈️</span>
+                <hr>
+              </div>
+              <div class="flight-airport" style="text-align:right">
+                <div class="flight-iata">${f.to}</div>
+                <div class="flight-city">${f.toCity}</div>
+              </div>
             </div>
-            <span class="openchev"><svg viewBox="0 0 14 14" width="13" height="13" aria-hidden="true"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="flight-meta">
+              <div class="flight-meta-item"><div class="flight-meta-label">Airline</div><div class="flight-meta-value">${f.airline}</div></div>
+              <div class="flight-meta-item"><div class="flight-meta-label">Flight</div><div class="flight-meta-value">${f.code}</div></div>
+              <div class="flight-meta-item"><div class="flight-meta-label">Passenger</div><div class="flight-meta-value">${s.who.map(w=>WHO_LABEL[w]).join(' · ')}</div></div>
+            </div>
+            <div class="stop-detail" id="detail-${d.n}-${i}">
+              <div class="stop-detail-inner"><p>${s.note}</p></div>
+            </div>
+          </div>`;
+      } else {
+        // 類型標籤（拿掉 hotel 的 CI/CO）
+        const typeTags = s.tags
+          .filter(([cls,label]) => !(s.k==='hotel' && (label.includes('CI')||label.includes('CO'))))
+          .map(([cls,label]) => `<span class="tag ${cls}">${label}</span>`).join('');
+        const whoTagsRow = s.who.map(w=>`<span class="tag ${WHO_COLOR[w]}">${w}</span>`).join('');
+
+        const allTags = typeTags + whoTagsRow;
+        cardHtml = `
+          <div class="stop-card">
+            <div class="stop-main" onclick="toggleStop('${d.n}-${i}')">
+              <div class="stop-top-row">
+                <div class="stop-type-tags">${allTags}</div>
+                <span class="stop-chev" id="chev-${d.n}-${i}"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M3.5 5.25 7 8.75 10.5 5.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </div>
+              <div class="stop-name" style="padding:0 14px 2px">${s.name}</div>
+              <div class="stop-area" style="padding:0 14px 10px">${s.area}</div>
+            </div>
+            <div class="stop-detail" id="detail-${d.n}-${i}">
+              <div class="stop-detail-inner"><p>${s.note}</p>${map}</div>
+            </div>
+          </div>`;
+      }
+
+      // 分類標籤文字（第一個 tag 的 label）
+      const catLabel = s.k === 'fly' ? '航班' : s.tags.length > 0 ? s.tags[0][1] : '';
+
+      stopsHtml += `
+        <div class="stop${dim}" data-idx="${d.n}-${i}">
+          <div class="stop-track">
+            <div class="stop-dot ${s.k}"></div>
           </div>
-          <div class="badges">${badges}</div>
-          <div class="reveal"><div class="inner">
-            <div class="note">${s.note}</div>
-            ${map}
-          </div></div>
-        </div>
-      </div>`;
-  });
-  sec.innerHTML=`
-    <div class="dayhead">
-      <div class="daynum">${d.n}<small>DAY</small></div>
-      <div class="daymeta">
-        <div class="date">${d.date}<span class="dow">${d.dow}</span></div>
-        <div class="sub">
-          <span class="chip who">${d.who}</span>
-          ${d.hotel!=="—"?'<span class="chip hotel">🏨 '+d.hotel+'</span>':''}
-          <span class="chip">${d.area}</span>
-        </div>
+          <div class="stop-content">
+            <div class="stop-row">
+              <div class="stop-time">${s.t}</div>
+              <div class="stop-cat">${catLabel}</div>
+            </div>
+            ${cardHtml}
+          </div>
+        </div>`;
+    });
+
+    sec.innerHTML = `
+      <div class="day-header">
+        <div class="day-date">${d.date}</div>
+        <div class="day-dow">${d.dow}</div>
       </div>
-    </div>
-    <p class="daysummary">${d.summary}</p>
-    <div class="timeline">${stops}</div>`;
-  host.appendChild(sec);
-});
-
-host.querySelectorAll(".top").forEach(t=>{
-  const toggle=()=>t.closest(".card").classList.toggle("open");
-  t.addEventListener("click",toggle);
-  t.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} });
-});
-
-const pills=[...nav.querySelectorAll(".pill")];
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      const id=e.target.id;
-      pills.forEach(p=>p.setAttribute("aria-current", p.dataset.target===id ? "true":"false"));
-      const ap=pills.find(p=>p.dataset.target===id);
-      if(ap) ap.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
-    }
+      ${hotelLine(d)}
+      ${stopsHtml}`;
+    container.appendChild(sec);
   });
-},{rootMargin:"-55% 0px -42% 0px"});
-days.forEach(d=>io.observe(document.getElementById("day"+d.n)));
+}
+
+function toggleStop(id) {
+  const el = document.getElementById('detail-' + id);
+  const chev = document.getElementById('chev-' + id);
+  if (el) el.classList.toggle('open');
+  if (chev) chev.classList.toggle('open');
+}
+
+function toggleTips() {
+  const body = document.getElementById('tips-body');
+  const toggle = document.getElementById('tips-toggle');
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function setWho(w) {
+  activeWho = (activeWho === w) ? null : w;
+  document.querySelectorAll('.swbtn').forEach(b => {
+    b.classList.toggle('active', b.dataset.who === activeWho);
+  });
+  buildDays();
+  setupNav();
+}
+
+// daynav
+function setupNav() {
+  const nav = document.getElementById('daynav');
+  nav.innerHTML = '';
+  days.forEach(d => {
+    const hasMe = !activeWho || d.stops.some(s => s.who.includes(activeWho));
+    const btn = document.createElement('button');
+    btn.className = 'daypill' + (hasMe ? '' : ' dimday');
+    btn.dataset.target = 'day' + d.n;
+    btn.innerHTML = `<span class="wd">${d.dow}</span><span class="dd">${d.date.replace('7/','')}</span>`;
+    btn.onclick = () => document.getElementById('day' + d.n).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    nav.appendChild(btn);
+  });
+
+  // intersection observer for active pill
+  const pills = [...nav.querySelectorAll('.daypill')];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        pills.forEach(p => p.classList.toggle('active', p.dataset.target === id));
+        const ap = pills.find(p => p.dataset.target === id);
+        if (ap) ap.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }
+    });
+  }, { rootMargin: '-50% 0px -47% 0px' });
+  days.forEach(d => { const el = document.getElementById('day' + d.n); if (el) io.observe(el); });
+}
+
+buildDays();
+setupNav();
 </script>
 </body>
 </html>
